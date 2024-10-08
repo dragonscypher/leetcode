@@ -1,7 +1,1 @@
-select Name
-from Employee as t1 
-join (select ManagerId
-    from Employee
-    group by ManagerId
-    having count(ManagerId) >= 5) as t2
-on t1.Id = t2.ManagerId
+select name from Employee where id in (select managerId from Employee group by managerId having count(managerId)>4);
