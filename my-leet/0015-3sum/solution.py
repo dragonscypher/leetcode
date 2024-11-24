@@ -4,7 +4,6 @@ class Solution:
         nums.sort()
 
         for i, a in enumerate(nums):
-            # Skip positive integers
             if a > 0:
                 break
 
@@ -26,4 +25,3 @@ class Solution:
                         l += 1
                         
         return res
-
