@@ -1,0 +1,21 @@
+name: Weekly Leetcode Sync
+
+on:
+  schedule:
+    - cron: "0 7 * * 0"  # 12 midnight MST (7 AM UTC)
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: LeetCode Sync
+        uses: joshcai/leetcode-sync@v1.7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}  # Auto-generated token for workflow
+          leetcode-csrf-token: ${{ secrets.LEETCODE_CSRF_TOKEN }}  # Required secret
+          leetcode-session: ${{ secrets.LEETCODE_SESSION }}  # Required secret
+          destination-folder: my-leet
+          verbose: true
+          commit-header: "[SP's LeetCode]"
