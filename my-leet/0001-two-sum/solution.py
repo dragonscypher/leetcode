@@ -1,9 +1,10 @@
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        hashmap = {}
-        for i, num in enumerate(nums):
-            complement = target - num
-            if complement in hashmap:
-                return [hashmap[complement], i]
-            hashmap[num] = i
+        d = defaultdict(int)
+        for idx, i in enumerate(nums):
+            diff = target - i
+            if diff in d:
+                return [idx, d[diff]]
+            d[i] = idx
+        return []
 
